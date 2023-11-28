@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hospital.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.API.Data
 {
@@ -8,5 +9,8 @@ namespace Hospital.API.Data
         {
             
         }
+
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
     }
 }
