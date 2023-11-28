@@ -1,4 +1,8 @@
 using Hospital.API.Data;
+using Hospital.API.Repositories;
+using Hospital.API.Repositories.Implementation;
+using Hospital.API.Services;
+using Hospital.API.Services.Implementation;
 using Hospital.API.Services.Mapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -49,6 +53,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAutoMapper(typeof(AutoMappingProfile));
+
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 

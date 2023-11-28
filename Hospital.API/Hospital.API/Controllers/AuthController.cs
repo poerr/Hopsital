@@ -29,5 +29,19 @@ namespace Hospital.API.Controllers
                 return BadRequest("There was an error with registering your account!");
             }
         }
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        {
+            UserDto? userData = await _authService.Login(dto);
+
+            if(userData != null)
+            {
+                return Ok(userData);
+            }
+            else
+            {
+                return NotFound("Invalid username or password!");
+            }
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace Hospital.API.Services.Implementation
             
             return await _patientRepository.Create(newPatient);
         }
+
+        public async Task<Patient?> GetByEmail(string email)
+        {
+            return await _patientRepository.GetByEmail(email);
+        }
     }
 }

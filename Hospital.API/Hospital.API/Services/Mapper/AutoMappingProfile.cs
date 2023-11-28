@@ -10,6 +10,8 @@ namespace Hospital.API.Services.Mapper
         {
             CreateMap<RegisterPatientDto, Patient>();
             CreateMap<RegisterPatientDto, Address>();
+            CreateMap<Patient, UserDto>();
+            CreateMap<Doctor, UserDto>();
         }
     }
 }
